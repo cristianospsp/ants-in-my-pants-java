@@ -10,20 +10,20 @@ public class PlayerBuilder {
 
 	private final int min = 1;
 	private final int max = 10;
-	private Map<String, Supplier<Ant>> tipos = new HashMap<>();
+	private Map<Colors, Supplier<Ant>> types = new HashMap<>();
 	private Random random = new Random();
 	private List<Ant> ants = new ArrayList<>();
+	private Colors[] chooser = {Colors.BLUE, Colors.BLACK, Colors.GREEN};
 
 	public PlayerBuilder() {
-		int quantidadeFormigas = random.nextInt(max - min + 1) + min;
-		tipos.put("Blue", () -> new AntBlue());
-		tipos.put("Black", () -> new AntBlack());
-		tipos.put("Green", () -> new AntGreen());
+		int amountAnts = random.nextInt(max - min + 1) + min;
 
-		String[] colors = {"Blue", "Black", "Green"};
+		types.put(Colors.BLUE, AntBlue::new);
+		types.put(Colors.BLACK, AntBlack::new);
+		types.put(Colors.GREEN, AntGreen::new);
 
-		for (int i = 0; i < quantidadeFormigas; i++) {
-			ants.add(tipos.get(colors[random.nextInt(3)]).get());
+		for (int i = 0; i < amountAnts; i++) {
+			ants.add(types.get(chooser[random.nextInt(3)]).get());
 		}
 	}
 

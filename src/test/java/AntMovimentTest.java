@@ -10,7 +10,7 @@ import java.util.List;
 public class AntMovimentTest {
 
 	@Test
-	public void deveAndarAleatoreamenteFormigaAzul() {
+	public void mustWalkRandomly() {
 		Board board = new Board(new Dimension(5, 5));
 		Ant ant = new AntBlue();
 		Ant ant2 = new AntBlue();
@@ -28,7 +28,7 @@ public class AntMovimentTest {
 	}
 
 	@Test
-	public void deveAndarAleatoreamenteFormigaAzulEFormigaVerde() {
+	public void mustWalkRandomlyBlueAntAndGreenAnt() {
 		Board board = new Board(new Dimension(5, 5));
 		Ant blue = new AntBlue();
 		Ant green = new AntGreen();
@@ -47,7 +47,7 @@ public class AntMovimentTest {
 
 
 	@Test
-	public void deveAndarComRegraFormigaPreta() {
+	public void mustWalkWithRuleOfBlackAnt() {
 		Board board = new Board(new Dimension(5, 5));
 		Ant black = new AntBlack();
 		board.addAntOnBoard(black);
@@ -61,7 +61,7 @@ public class AntMovimentTest {
 
 
 	@Test
-	public void deveAndarComTresTiposDeFormigaECom25Graos() {
+	public void mustWalkWith3AntsTypesAndWith25Grains() {
 		Board board = new Board(new Dimension(10, 10));
 		board.addGrains(25);
 		Ant blue = new AntBlue();
